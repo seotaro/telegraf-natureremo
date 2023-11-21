@@ -21,7 +21,6 @@ setup-telegraf:
 deploy:
 	sudo mkdir -p /usr/local/bin/telegraf-natureremo
 	sudo cp *.js  package.json yarn.lock /usr/local/bin/telegraf-natureremo
-	sudo cp -r patches /usr/local/bin/telegraf-natureremo
 	cd /usr/local/bin/telegraf-natureremo && sudo yarn && cd -
 
 snippet:
