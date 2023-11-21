@@ -1,9 +1,20 @@
 # telegraf-natureremo
 
-## インストール
+## Install
 
 ```bash
-yarn
+# Deploy exec
+make deploy
+```
+
+## stdout
+
+標準出力に計測値を所定のフォーマットで出力して Telegraf に取得させる。
+
+出力例）
+
+```json
+[{"sensor":"NatureRemo","id":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","time":"2023-11-21T10:38:39Z","temperature":24.8},{"sensor":"NatureRemo","id":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","time":"2023-11-21T12:12:06Z","humidity":48},{"sensor":"NatureRemo","id":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","time":"2023-11-21T12:34:17Z","illumination":29},{"sensor":"NatureRemo","id":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","time":"2023-11-21T06:37:07Z","movement":1},{"sensor":"NatureRemo","id":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","time":"2023-11-21T12:40:09Z","temperature":24.6},{"sensor":"NatureRemo","id":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","time":"2023-04-11T17:41:10Z","temperature":21.8}]
 ```
 
 ## /etc/telegraf/telegraf.conf
