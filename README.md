@@ -21,13 +21,14 @@ yarn
   organization = "{organization}"
   bucket = "{bucket}"
 
+# Nature Remo
 [[inputs.exec]]
   commands = [
     "node /usr/local/bin/telegraf-natureremo/index.js"
   ]
 
   environment = [
-    "Token={トークン}"
+    "token={トークン}"
   ]
 
   timeout = "30s"

@@ -25,29 +25,25 @@ const SENSOR_NAME = 'NatureRemo';
             const records = [];
 
             json.forEach(device => {
-                const record = {
-                    sensor: SENSOR_NAME,
-                    id: device.id,
-                };
+                Object.keys(device.newest_events).forEach(key => {
+                    const event = device.newest_events[key];
 
-                if (device.newest_events.te) {
-                    record.time = device.newest_events.te.created_at;
-                    record.temperature = device.newest_events.te.val + device.temperature_offset;
-                }
-                if (device.newest_events.hu) {
-                    record.time = device.newest_events.hu.created_at;
-                    record.humidity = device.newest_events.hu.val + device.humidity_offset;
-                }
-                if (device.newest_events.il) {
-                    record.time = device.newest_events.il.created_at;
-                    record.illumination = device.newest_events.il.val;
-                }
-                if (device.newest_events.mo) {
-                    record.time = device.newest_events.mo.created_at;
-                    record.movement = device.newest_events.mo.val;
-                }
+                    const record = {
+                        sensor: SENSOR_NAME,
+                        id: device.id,
+                        time: event.created_at
+                    }
 
-                records.push(record)
+                    switch (key) {
+                        case 'te': record.temperature = event.val + device.temperature_offset; break;
+                        case 'hu': record.humidity = event.val + device.humidity_offset; break;
+                        case 'il': record.illumination = event.val; break;
+                        case 'mo': record.movement = event.val; break;
+                    }
+
+                    records.push(record);
+                })
+
             })
 
             console.log(JSON.stringify(records));
