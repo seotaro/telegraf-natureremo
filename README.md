@@ -11,6 +11,8 @@ make deploy
 
 標準出力に計測値を所定のフォーマットで出力して Telegraf に取得させる。
 
+time は API をたたいた時刻ではなく、API が返した created_at を返す。リファレンスには特に説明がないが、created_at は値が変化した時刻が入るようだ。
+
 出力例）
 
 ```json
